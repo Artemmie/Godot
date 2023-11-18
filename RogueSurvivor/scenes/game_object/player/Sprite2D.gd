@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,4 +8,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	check_for_flip()
+
+
+func check_for_flip():
+	if Input.get_action_strength("move_right") && flip_h:
+		flip_h = false
+	if Input.get_action_strength("move_left") && !flip_h:
+		flip_h = true
