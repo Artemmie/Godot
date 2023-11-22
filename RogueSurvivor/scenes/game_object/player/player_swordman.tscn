@@ -1,10 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjr0cdooyt30p"]
+[gd_scene load_steps=11 format=3 uid="uid://bjr0cdooyt30p"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player_swordman.gd" id="1_7t546"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_1cmbv"]
 [ext_resource type="Texture2D" uid="uid://2118vh0q4bpj" path="res://scenes/game_object/player/player_swordman.png" id="2_iekrb"]
 [ext_resource type="Script" path="res://scenes/game_object/player/Sprite2D.gd" id="3_mw3el"]
 [ext_resource type="PackedScene" uid="uid://bll1ii0l38khu" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="4_qq2yr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4qc2"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7w23"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0n0ue"]
 radius = 32.0
@@ -38,6 +49,8 @@ offset_top = -23.0
 offset_right = 16.0
 offset_bottom = -17.0
 pivot_offset = Vector2(16, 3)
+theme_override_styles/background = SubResource("StyleBoxFlat_x4qc2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s7w23")
 max_value = 1.0
 value = 0.5
 show_percentage = false
@@ -57,6 +70,7 @@ offset = Vector2(0, -8)
 script = ExtResource("3_mw3el")
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -65,5 +79,6 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_xvg5o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_gyadi")
