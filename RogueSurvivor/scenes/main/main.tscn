@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw7n3pw16jth6"]
+[gd_scene load_steps=12 format=3 uid="uid://bw7n3pw16jth6"]
 
 [ext_resource type="TileSet" uid="uid://dqr7fr8f54le7" path="res://resources/tileset.tres" id="1_3xjq2"]
 [ext_resource type="PackedScene" uid="uid://bjr0cdooyt30p" path="res://scenes/game_object/player/player_swordman.tscn" id="1_ek0em"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_kgexr"]
 [ext_resource type="PackedScene" uid="uid://eke4yvsu68ne" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_rm8tu"]
+[ext_resource type="PackedScene" uid="uid://bap1xws2ah1u1" path="res://scenes/ui/end_screen.tscn" id="2_8h6px"]
 [ext_resource type="PackedScene" uid="uid://bhyqdftnmsiry" path="res://scenes/manager/experience_manager.tscn" id="4_qo8ph"]
 [ext_resource type="PackedScene" uid="uid://b5l5gx32h8b2m" path="res://scenes/ui/arena_time_ui.tscn" id="5_fjjjc"]
 [ext_resource type="PackedScene" uid="uid://d3d6io7nq6v8h" path="res://scenes/manager/enemy_manager.tscn" id="5_tx1ww"]
@@ -11,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://d2tu2ym4x4if0" path="res://scenes/ui/experience_bar.tscn" id="8_5upag"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_kgexr")
+end_screen_scene = ExtResource("2_8h6px")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("5_fjjjc")]
 arena_time_manager = NodePath("../ArenaTimeManager")
@@ -39,6 +43,7 @@ layer_0/tile_data = PackedInt32Array(5439607, 65536, 4, 5374071, 65536, 4, 53085
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_ek0em")]
+unique_name_in_owner = true
 position = Vector2(887, 703)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]

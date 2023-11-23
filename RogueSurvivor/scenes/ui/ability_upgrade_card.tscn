@@ -17,5 +17,5 @@ text = "Name Here"
 [node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Description hereas"
+text = "Description herea"
 autowrap_mode = 2
