@@ -1,11 +1,95 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjr0cdooyt30p"]
+[gd_scene load_steps=13 format=3 uid="uid://bjr0cdooyt30p"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player_swordman.gd" id="1_7t546"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_1cmbv"]
 [ext_resource type="Texture2D" uid="uid://2118vh0q4bpj" path="res://scenes/game_object/player/player_swordman.png" id="2_iekrb"]
-[ext_resource type="PackedScene" uid="uid://b0l5fy1tx18g0" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="3_f5x3n"]
-[ext_resource type="Script" path="res://scenes/game_object/player/Sprite2D.gd" id="3_mw3el"]
 [ext_resource type="PackedScene" uid="uid://bll1ii0l38khu" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="4_qq2yr"]
+
+[sub_resource type="Animation" id="Animation_1eh78"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, -5), Vector2(2.88629e-08, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.20944, 0.20944, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(0.757858, 3.03143, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.2, 0.7), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8kh48"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdft3"]
+_data = {
+"RESET": SubResource("Animation_8kh48"),
+"walk": SubResource("Animation_1eh78")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4qc2"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
@@ -32,14 +116,17 @@ collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_7t546")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vdft3")
+}
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_1cmbv")
 
-[node name="AbilityManager" type="Node" parent="."]
+[node name="Abilities" type="Node" parent="."]
 
-[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("4_qq2yr")]
-
-[node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("3_f5x3n")]
+[node name="SwordAbilityController" parent="Abilities" instance=ExtResource("4_qq2yr")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -67,10 +154,11 @@ collision_mask = 0
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_0n0ue")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("2_iekrb")
 offset = Vector2(0, -8)
-script = ExtResource("3_mw3el")
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
 visible = false
