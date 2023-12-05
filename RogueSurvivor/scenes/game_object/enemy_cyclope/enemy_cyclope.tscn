@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yu72j1v303bj"]
+[gd_scene load_steps=16 format=3 uid="uid://yu72j1v303bj"]
 
 [ext_resource type="Script" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.gd" id="1_2jypi"]
 [ext_resource type="Texture2D" uid="uid://cfk0gd1hwy5n5" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.png" id="1_go8ox"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ct3dr4wslqihj" path="res://scenes/component/vial_drop_component.tscn" id="3_kdpun"]
 [ext_resource type="PackedScene" uid="uid://bju61pgn7s4kw" path="res://scenes/component/hurt_box_component.tscn" id="4_tcxu2"]
 [ext_resource type="PackedScene" uid="uid://c86snii6kl05m" path="res://scenes/component/death_component.tscn" id="6_3j3w8"]
+[ext_resource type="Shader" path="res://scenes/component/hit_flash_component.gdshader" id="6_jbib3"]
 [ext_resource type="PackedScene" uid="uid://drukj8tm53wy0" path="res://scenes/component/velocity_component.tscn" id="7_nx3m3"]
+[ext_resource type="PackedScene" uid="uid://bgqus7cmu5sx7" path="res://scenes/component/hit_flash_component.tscn" id="8_jv01w"]
 
 [sub_resource type="Animation" id="Animation_y6nrs"]
 length = 0.001
@@ -46,6 +48,11 @@ _data = {
 "walk": SubResource("Animation_fi34c")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c2li"]
+resource_local_to_scene = true
+shader = ExtResource("6_jbib3")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_7u0on"]
 radius = 12.0
 
@@ -70,6 +77,13 @@ libraries = {
 drop_percent = 0.35
 health_component = NodePath("../HealthComponent")
 
+[node name="VelocityComponent" parent="." instance=ExtResource("7_nx3m3")]
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_jv01w")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_8c2li")
+
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_3j3w8")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
@@ -90,5 +104,3 @@ offset = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_dsti1")
-
-[node name="VelocityComponent" parent="." instance=ExtResource("7_nx3m3")]
