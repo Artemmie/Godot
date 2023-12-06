@@ -1,7 +1,41 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chgmf4xlx0cw3"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://chgmf4xlx0cw3"]
 
+[ext_resource type="Texture2D" uid="uid://c5am8c2skhu8l" path="res://assets/ui/ui.png" id="1_3i65q"]
 [ext_resource type="FontFile" uid="uid://ci7uvcot4nutn" path="res://resources/theme/Rockboxcond12.ttf" id="1_lsre4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6jcv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+texture = ExtResource("1_3i65q")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(18, 2, 12, 12)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opplv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b32ww"]
+texture = ExtResource("1_3i65q")
+texture_margin_left = 4.0
+texture_margin_top = 13.0
+texture_margin_right = 4.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 16, 16)
 
 [resource]
 default_font = ExtResource("1_lsre4")
 default_font_size = 16
+AlternatePanelContainer/base_type = &"PanelContainer"
+AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_u6jcv")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_opplv")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_b32ww")
