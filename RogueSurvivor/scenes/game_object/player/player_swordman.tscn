@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjr0cdooyt30p"]
+[gd_scene load_steps=12 format=3 uid="uid://bjr0cdooyt30p"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player_swordman.gd" id="1_7t546"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_1cmbv"]
@@ -91,9 +91,6 @@ _data = {
 "walk": SubResource("Animation_1eh78")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4qc2"]
-bg_color = Color(0.247059, 0.14902, 0.192157, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7w23"]
 bg_color = Color(0.262745, 0.882353, 0.701961, 1)
 border_width_left = 2
@@ -139,7 +136,6 @@ offset_top = -23.0
 offset_right = 16.0
 offset_bottom = -17.0
 pivot_offset = Vector2(16, 3)
-theme_override_styles/background = SubResource("StyleBoxFlat_x4qc2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_s7w23")
 max_value = 1.0
 value = 0.5
