@@ -1,10 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjr0cdooyt30p"]
+[gd_scene load_steps=19 format=3 uid="uid://bjr0cdooyt30p"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player_swordman.gd" id="1_7t546"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_1cmbv"]
 [ext_resource type="Texture2D" uid="uid://2118vh0q4bpj" path="res://scenes/game_object/player/player_swordman.png" id="2_iekrb"]
 [ext_resource type="PackedScene" uid="uid://bll1ii0l38khu" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="4_qq2yr"]
 [ext_resource type="PackedScene" uid="uid://drukj8tm53wy0" path="res://scenes/component/velocity_component.tscn" id="5_j6neb"]
+[ext_resource type="PackedScene" uid="uid://b5rgyye11sl5g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="5_ow05w"]
+[ext_resource type="AudioStream" uid="uid://bq800a1dqiq4s" path="res://assets/audio/impactMining_000.ogg" id="6_vwgy8"]
+[ext_resource type="AudioStream" uid="uid://dgppemfditfkl" path="res://assets/audio/impactMining_001.ogg" id="7_31pj6"]
+[ext_resource type="AudioStream" uid="uid://dnrlc0v1nqmwg" path="res://assets/audio/impactMining_002.ogg" id="8_k86l6"]
+[ext_resource type="AudioStream" uid="uid://dquwqx4wg5m8l" path="res://assets/audio/impactMining_003.ogg" id="9_5delg"]
+[ext_resource type="AudioStream" uid="uid://cvg4firhnmkm3" path="res://assets/audio/impactMining_004.ogg" id="10_irvxo"]
 
 [sub_resource type="Animation" id="Animation_8kh48"]
 length = 0.001
@@ -101,7 +107,7 @@ border_width_bottom = 2
 border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0n0ue"]
-radius = 32.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvg5o"]
 radius = 7.0
@@ -109,7 +115,7 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyadi"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player", "swordman"]]
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_7t546")
@@ -121,10 +127,11 @@ libraries = {
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_j6neb")]
 max_speed = 60
-acceleration = 10.0
+acceleration = 15.0
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_1cmbv")
+max_health = 100.0
 
 [node name="Abilities" type="Node" parent="."]
 
@@ -147,7 +154,6 @@ value = 0.5
 show_percentage = false
 
 [node name="PickupArea2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 0
 
@@ -164,7 +170,7 @@ offset = Vector2(0, -8)
 [node name="CollisionArea2D" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
-collision_mask = 8
+collision_mask = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
 position = Vector2(0, -7)
@@ -174,3 +180,6 @@ shape = SubResource("CircleShape2D_xvg5o")
 visible = false
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_gyadi")
+
+[node name="HitRandomStreamPlayer" parent="." instance=ExtResource("5_ow05w")]
+streams = Array[AudioStream]([ExtResource("6_vwgy8"), ExtResource("7_31pj6"), ExtResource("8_k86l6"), ExtResource("9_5delg"), ExtResource("10_irvxo")])

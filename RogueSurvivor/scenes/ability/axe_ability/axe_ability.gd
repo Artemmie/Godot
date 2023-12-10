@@ -1,6 +1,6 @@
 extends Node2D
 
-const MAX_RADIUS = 125
+const MAX_RADIUS = 100
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 
@@ -8,7 +8,7 @@ var base_rotation = Vector2.RIGHT
 func _ready():
 	base_rotation = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	var tween = create_tween()
-	tween.tween_method(tween_method, 0.0, 2.0, 3)
+	tween.tween_method(tween_method, 0.0, 1.5, 3)
 	tween.tween_callback(queue_free)
 	
 func tween_method(rotations: float):

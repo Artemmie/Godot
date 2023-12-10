@@ -2,22 +2,34 @@ extends Node
 
 @export var experience_manager: Node
 @export var upgrade_screen_scene: PackedScene
+@export var player: CharacterBody2D
 
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
+#axe
 var upgrade_axe = preload("res://resources/upgrades/axe.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
+var upgrade_axe_base_damage = preload("res://resources/upgrades/axe_base_damage.tres")
+#sword
+var upgrade_sword = preload("res://resources/upgrades/sword.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
+var upgrade_sword_base_damage = preload("res://resources/upgrades/sword_base_damage.tres")
+#common
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
+var upgrade_pickup_distance = preload("res://resources/upgrades/pickup_distance.tres")
+var upgrade_player_health = preload("res://resources/upgrades/player_health.tres")
 
 
 func _ready():
-	upgrade_pool.add_item(upgrade_axe, 5)
-	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 10)
+	upgrade_pool.add_item(upgrade_sword, 3)
+	upgrade_pool.add_item(upgrade_axe, 3)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
+	upgrade_pool.add_item(upgrade_pickup_distance, 5)
+	upgrade_pool.add_item(upgrade_player_health, 5)
+	if player.is_in_group("swordman"):
+		apply_upgrade(upgrade_sword)
 	experience_manager.level_up.connect(on_level_up)
 	
 func apply_upgrade(upgrade: AbilityUpgrade):
@@ -40,6 +52,11 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 	if chosen_upgrade.id == upgrade_axe.id:
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
+		upgrade_pool.add_item(upgrade_axe_base_damage, 5)
+	if chosen_upgrade.id == upgrade_sword.id:
+		upgrade_pool.add_item(upgrade_sword_rate, 10)
+		upgrade_pool.add_item(upgrade_sword_damage, 10)
+		upgrade_pool.add_item(upgrade_sword_base_damage, 5)
 func pick_upgrades():
 	var chosen_upgrades: Array[AbilityUpgrade] = []
 	for i in 3:

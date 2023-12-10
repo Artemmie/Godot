@@ -26,3 +26,5 @@ func on_timer_timeout():
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "axe_damage":
 		additional_damage_percent = 1 + (current_upgrades["axe_damage"]["quantity"] * 0.05)
+	if upgrade.id == "axe_base_damage":
+		base_damage_percent = 1 + (current_upgrades["axe_base_damage"]["quantity"] * 0.05)

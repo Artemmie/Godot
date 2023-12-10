@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://0ldppfsi8aya"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_6jc1e"]
+
+[resource]
+script = ExtResource("1_6jc1e")
+id = "player_health"
+max_quantity = 0
+name = "Health"
+description = "Increase player's base health by 10%"
