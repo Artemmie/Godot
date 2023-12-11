@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_5jcgi")
 id = "sword"
-max_quantity = 5
+max_quantity = 4
 name = "Sword"
 description = "Increases amount of sword attacks by 1."

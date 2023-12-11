@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var visuals = $Visuals
 @onready var velocity_component = $VelocityComponent
+@onready var health_component = $HealthComponent
 
 func _ready():
 	$HurtBoxComponent.hit.connect(on_hit)

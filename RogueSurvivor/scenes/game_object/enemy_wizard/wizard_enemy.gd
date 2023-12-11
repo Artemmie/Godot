@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var velocity_component = $VelocityComponent
 @onready var visuals = $Visuals
+@onready var health_component = $HealthComponent
 
 var is_moving
 
