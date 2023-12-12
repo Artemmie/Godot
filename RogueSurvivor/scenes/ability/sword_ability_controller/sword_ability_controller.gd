@@ -1,8 +1,8 @@
 extends Node
 
-const MAX_RANGE = 150
+const MAX_RANGE = 125
 @export var sword_ability: PackedScene
-@export var base_damage = 5
+@export var base_damage = 6
 
 var additional_damage_percent = 1
 var base_damage_percent = 1

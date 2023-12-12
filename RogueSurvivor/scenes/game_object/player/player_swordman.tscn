@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjr0cdooyt30p"]
+[gd_scene load_steps=20 format=3 uid="uid://bjr0cdooyt30p"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player_swordman.gd" id="1_7t546"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_1cmbv"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dnrlc0v1nqmwg" path="res://assets/audio/impactMining_002.ogg" id="8_k86l6"]
 [ext_resource type="AudioStream" uid="uid://dquwqx4wg5m8l" path="res://assets/audio/impactMining_003.ogg" id="9_5delg"]
 [ext_resource type="AudioStream" uid="uid://cvg4firhnmkm3" path="res://assets/audio/impactMining_004.ogg" id="10_irvxo"]
+[ext_resource type="PackedScene" uid="uid://ycweq13tcoxq" path="res://scenes/component/armor_component.tscn" id="12_1lvmy"]
 
 [sub_resource type="Animation" id="Animation_8kh48"]
 length = 0.001
@@ -132,6 +133,8 @@ acceleration = 15.0
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_1cmbv")
 max_health = 100.0
+
+[node name="ArmorComponent" parent="." instance=ExtResource("12_1lvmy")]
 
 [node name="Abilities" type="Node" parent="."]
 
