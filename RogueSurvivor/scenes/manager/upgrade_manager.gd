@@ -20,6 +20,7 @@ var upgrade_sword_base_damage = preload("res://resources/upgrades/sword_base_dam
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_pickup_distance = preload("res://resources/upgrades/pickup_distance.tres")
 var upgrade_player_health = preload("res://resources/upgrades/player_health.tres")
+var upgrade_player_armor = preload("res://resources/upgrades/player_armor.tres")
 
 
 func _ready():
@@ -28,6 +29,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_pickup_distance, 5)
 	upgrade_pool.add_item(upgrade_player_health, 5)
+	upgrade_pool.add_item(upgrade_player_armor, 555555)
 	if player.is_in_group("swordman"):
 		apply_upgrade(upgrade_sword)
 	experience_manager.level_up.connect(on_level_up)

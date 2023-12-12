@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://c7gsedvneg5rb"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_l2wgq"]
+
+[resource]
+script = ExtResource("1_l2wgq")
+id = "player_armor"
+max_quantity = 10
+name = "Extra Armor"
+description = "Increase player's base armor by 10%"

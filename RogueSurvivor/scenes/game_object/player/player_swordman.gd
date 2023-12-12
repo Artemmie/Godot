@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
 @onready var pickup_distance = $PickupArea2D/CollisionShape2D
+@onready var armor_component = $ArmorComponent
+
 
 var number_colliding_bodies = 0
 var base_speed = 0
@@ -55,11 +57,19 @@ func update_health_display():
 
 func on_body_entered(other_body: Node2D):
 	if other_body.is_in_group("cyclope"):
+<<<<<<< HEAD
 		damage = 10
 	elif other_body.is_in_group("wizard"):
 		damage = 20
 	elif other_body.is_in_group("bat"):
 		damage = 15
+=======
+		damage = max(10 - armor_component.get_armor_value(), 0)
+	elif other_body.is_in_group("wizard"):
+		damage = max(20 - armor_component.get_armor_value(), 0)
+	elif other_body.is_in_group("bat"):
+		damage = max(30 - armor_component.get_armor_value(), 0)
+>>>>>>> origin/main
 	number_colliding_bodies += 1
 	check_deal_damage()
 	
