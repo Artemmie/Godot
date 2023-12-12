@@ -55,11 +55,11 @@ func update_health_display():
 
 func on_body_entered(other_body: Node2D):
 	if other_body.is_in_group("cyclope"):
-		damage = 1
+		damage = 10
 	elif other_body.is_in_group("wizard"):
-		damage = 2
+		damage = 20
 	elif other_body.is_in_group("bat"):
-		damage = 3
+		damage = 15
 	number_colliding_bodies += 1
 	check_deal_damage()
 	

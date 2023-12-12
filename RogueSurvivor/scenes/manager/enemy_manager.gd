@@ -3,6 +3,7 @@ const SPAWN_RADIUS = 350
 @export var cyclope_enemy_scene: PackedScene
 @export var wizard_enemy_scene: PackedScene 
 @export var bat_enemy_scene: PackedScene
+@export var cyclope_enemy_boss_scene: PackedScene
 
 @export var arena_time_manager: Node
 @onready var timer = $Timer
@@ -43,6 +44,8 @@ func on_timer_timeout():
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy)
 	enemy.global_position = get_spawn_position()
+	if enemy_scene == cyclope_enemy_boss_scene:
+		enemy_table.remove_item(cyclope_enemy_boss_scene)
 	
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (.1 / 12) * arena_difficulty
@@ -56,6 +59,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	if arena_difficulty == 36:
 		enemy_table.add_item(bat_enemy_scene, 1)
 		enemy_table.remove_item(wizard_enemy_scene)
+		enemy_table.add_item(cyclope_enemy_boss_scene, 99999)
 	if arena_difficulty == 54:
 		enemy_table.add_item(cyclope_enemy_scene, 10)
 		enemy_table.remove_item(bat_enemy_scene)

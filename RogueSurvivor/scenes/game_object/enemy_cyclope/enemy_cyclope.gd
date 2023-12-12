@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var health_component = $HealthComponent
 
 func _ready():
-	$HurtBoxComponent.hit.connect(on_hit)
+	$HurtboxComponent.hit.connect(on_hit)
 func _process(delta):
 	velocity_component.accelerate_to_player()
 	velocity_component.move(self)

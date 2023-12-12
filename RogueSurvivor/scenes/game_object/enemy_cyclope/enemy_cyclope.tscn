@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cfk0gd1hwy5n5" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.png" id="1_go8ox"]
 [ext_resource type="PackedScene" uid="uid://deu06408otpur" path="res://scenes/component/health_component.tscn" id="2_yqu1e"]
 [ext_resource type="PackedScene" uid="uid://ct3dr4wslqihj" path="res://scenes/component/vial_drop_component.tscn" id="3_kdpun"]
-[ext_resource type="PackedScene" uid="uid://bju61pgn7s4kw" path="res://scenes/component/hurt_box_component.tscn" id="4_tcxu2"]
 [ext_resource type="PackedScene" uid="uid://c86snii6kl05m" path="res://scenes/component/death_component.tscn" id="6_3j3w8"]
 [ext_resource type="Shader" path="res://scenes/component/hit_flash_component.gdshader" id="6_jbib3"]
 [ext_resource type="PackedScene" uid="uid://drukj8tm53wy0" path="res://scenes/component/velocity_component.tscn" id="7_nx3m3"]
 [ext_resource type="PackedScene" uid="uid://bgqus7cmu5sx7" path="res://scenes/component/hit_flash_component.tscn" id="8_jv01w"]
+[ext_resource type="Script" path="res://scenes/component/hurt_box_component.gd" id="9_fw3gc"]
 [ext_resource type="AudioStream" uid="uid://cfoprdit6jqwl" path="res://assets/audio/footstep_carpet_000.ogg" id="10_cphwt"]
 [ext_resource type="PackedScene" uid="uid://b5rgyye11sl5g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="11_yi1ki"]
 [ext_resource type="AudioStream" uid="uid://b0441b7255yj8" path="res://assets/audio/footstep_carpet_001.ogg" id="12_prwlt"]
@@ -54,16 +54,16 @@ _data = {
 "walk": SubResource("Animation_fi34c")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fefiw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61x3p"]
 resource_local_to_scene = true
 shader = ExtResource("6_jbib3")
 shader_parameter/lerp_percent = 0.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7u0on"]
-radius = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvror"]
+radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dsti1"]
-radius = 7.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_0y72p"]
+radius = 6.0
 
 [node name="EnemyCyclope" type="CharacterBody2D" groups=["cyclope", "enemy"]]
 collision_layer = 8
@@ -81,7 +81,6 @@ libraries = {
 max_health = 7.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_kdpun")]
-drop_percent = 0.35
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("7_nx3m3")]
@@ -90,7 +89,7 @@ acceleration = 15.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_jv01w")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_fefiw")
+hit_flash_material = SubResource("ShaderMaterial_61x3p")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_3j3w8")]
 health_component = NodePath("../HealthComponent")
@@ -103,16 +102,19 @@ z_as_relative = false
 texture = ExtResource("1_go8ox")
 offset = Vector2(0, -8)
 
-[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_tcxu2")]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("9_fw3gc")
 health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_7u0on")
+shape = SubResource("CircleShape2D_yvror")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_dsti1")
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_0y72p")
 
 [node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("11_yi1ki")]
 streams = Array[AudioStream]([ExtResource("10_cphwt"), ExtResource("12_prwlt"), ExtResource("13_kg12q"), ExtResource("14_c58xr"), ExtResource("15_8pr3x")])

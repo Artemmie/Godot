@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw7n3pw16jth6"]
+[gd_scene load_steps=14 format=3 uid="uid://bw7n3pw16jth6"]
 
 [ext_resource type="TileSet" uid="uid://dqr7fr8f54le7" path="res://resources/tileset.tres" id="1_3xjq2"]
 [ext_resource type="PackedScene" uid="uid://bjr0cdooyt30p" path="res://scenes/game_object/player/player_swordman.tscn" id="1_ek0em"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4nxiuq5kqwk8" path="res://scenes/manager/arena_time_manager.tscn" id="6_pm7qs"]
 [ext_resource type="PackedScene" uid="uid://dkvt3w8xv0rnt" path="res://scenes/manager/upgrade_manager.tscn" id="6_t6v1e"]
 [ext_resource type="PackedScene" uid="uid://d2tu2ym4x4if0" path="res://scenes/ui/experience_bar.tscn" id="8_5upag"]
+[ext_resource type="PackedScene" uid="uid://dq2b1e24xm0n7" path="res://scenes/game_object/enemy_cyclope_boss/enemy_cyclope_boss.tscn" id="8_oaxp5"]
 [ext_resource type="PackedScene" uid="uid://cbj7f5x8cshx8" path="res://scenes/ui/vignette.tscn" id="12_w3gfb"]
 
 [node name="Main" type="Node"]
@@ -28,6 +29,7 @@ experience_manager = NodePath("../ExperienceManager")
 [node name="ArenaTimeManager" parent="." instance=ExtResource("6_pm7qs")]
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("5_tx1ww")]
+cyclope_enemy_boss_scene = ExtResource("8_oaxp5")
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceManager" parent="." instance=ExtResource("4_qo8ph")]
