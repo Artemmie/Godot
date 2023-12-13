@@ -58,6 +58,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		additional_damage_percent = 1 + current_upgrades["sword_damage"]["quantity"] * 0.1
 	elif upgrade.id == "sword":
 		swords_amount = current_upgrades["sword"]["quantity"]
-	elif upgrade.id == "sword_base_damage":
-		base_damage_percent = 1 + current_upgrades["sword_base_damage"]["quantity"] * 0.1
+	elif upgrade.id == "physical_base_damage":
+		base_damage_percent = 1 + current_upgrades["physical_base_damage"]["quantity"] * 0.05
 	

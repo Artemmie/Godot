@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4nxiuq5kqwk8" path="res://scenes/manager/arena_time_manager.tscn" id="6_pm7qs"]
 [ext_resource type="PackedScene" uid="uid://dkvt3w8xv0rnt" path="res://scenes/manager/upgrade_manager.tscn" id="6_t6v1e"]
 [ext_resource type="PackedScene" uid="uid://d2tu2ym4x4if0" path="res://scenes/ui/experience_bar.tscn" id="8_5upag"]
-[ext_resource type="PackedScene" uid="uid://dq2b1e24xm0n7" path="res://scenes/game_object/enemy_cyclope_boss/enemy_cyclope_boss.tscn" id="8_oaxp5"]
+[ext_resource type="PackedScene" uid="uid://x8cd53l7wbiw" path="res://scenes/game_object/enemy_boss_cyclope/enemy_boss_cyclope.tscn" id="8_oaxp5"]
 [ext_resource type="PackedScene" uid="uid://cbj7f5x8cshx8" path="res://scenes/ui/vignette.tscn" id="12_w3gfb"]
 
 [node name="Main" type="Node"]

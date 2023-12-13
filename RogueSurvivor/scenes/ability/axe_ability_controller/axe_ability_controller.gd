@@ -3,7 +3,7 @@ extends Node
 
 @export var axe_ability_scene: PackedScene
 
-var base_damage = 8
+var base_damage = 7
 var additional_damage_percent = 1
 var base_damage_percent = 1
 
@@ -26,5 +26,5 @@ func on_timer_timeout():
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "axe_damage":
 		additional_damage_percent = 1 + (current_upgrades["axe_damage"]["quantity"] * 0.05)
-	if upgrade.id == "axe_base_damage":
-		base_damage_percent = 1 + (current_upgrades["axe_base_damage"]["quantity"] * 0.05)
+	if upgrade.id == "physical_base_damage":
+		base_damage_percent = 1 + (current_upgrades["physical_base_damage"]["quantity"] * 0.05)
