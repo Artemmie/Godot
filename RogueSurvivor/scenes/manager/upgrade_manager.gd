@@ -61,7 +61,7 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 func check_base_damage(chosen_upgrade: AbilityUpgrade):
 	if !current_upgrades.has(upgrade_physical_base_damage.id):
 		if current_upgrades.has(upgrade_axe.id) or current_upgrades.has(upgrade_sword.id):
-			upgrade_pool.add_item(upgrade_physical_base_damage, 55555)
+			upgrade_pool.add_item(upgrade_physical_base_damage, 5)
 	
 
 		
