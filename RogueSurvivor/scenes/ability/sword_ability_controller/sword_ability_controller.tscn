@@ -6,6 +6,7 @@
 [node name="SwordAbilityController" type="Node"]
 script = ExtResource("1_3jnso")
 sword_ability = ExtResource("2_oxnqp")
+base_damage = 65
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5

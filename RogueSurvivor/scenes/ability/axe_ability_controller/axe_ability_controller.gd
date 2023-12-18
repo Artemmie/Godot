@@ -3,7 +3,7 @@ extends Node
 
 @export var axe_ability_scene: PackedScene
 
-var base_damage = 7
+@export var base_damage = 7
 var additional_damage_percent = 1
 var base_damage_percent = 1
 
@@ -21,7 +21,7 @@ func on_timer_timeout():
 	var axe_instance = axe_ability_scene.instantiate() as Node2D
 	foreground.add_child(axe_instance)
 	axe_instance.global_position = player.global_position
-	axe_instance.hitbox_component.damage = (base_damage * base_damage_percent) * additional_damage_percent
+	axe_instance.hitbox_component.damage = (base_damage * base_damage_percent + randf_range(0, 5)) * additional_damage_percent
 	
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "axe_damage":

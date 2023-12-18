@@ -80,7 +80,7 @@ _data = {
 "fly": SubResource("Animation_hj7f8")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmkea"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1sb1h"]
 resource_local_to_scene = true
 shader = ExtResource("6_cbypa")
 shader_parameter/lerp_percent = 0.0
@@ -105,7 +105,7 @@ libraries = {
 }
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_g6bg4")]
-max_health = 15.0
+max_health = 50.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_oaoba")]
 drop_percent = 0.25
@@ -118,7 +118,7 @@ acceleration = 0.6
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_d7sip")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_wmkea")
+hit_flash_material = SubResource("ShaderMaterial_1sb1h")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_n3cus")]
 health_component = NodePath("../HealthComponent")

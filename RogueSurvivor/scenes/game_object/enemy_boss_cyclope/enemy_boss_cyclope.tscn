@@ -54,7 +54,7 @@ _data = {
 "walk": SubResource("Animation_fi34c")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_redmk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5bty"]
 resource_local_to_scene = true
 shader = ExtResource("6_o0b2g")
 shader_parameter/lerp_percent = 0.0
@@ -77,17 +77,22 @@ libraries = {
 }
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_o5aud")]
-max_health = 200.0
+max_health = 1000.0
 
-[node name="VialDropComponent" parent="." instance=ExtResource("3_c1qst")]
+[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_c1qst")]
+health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_ffv6e")]
 acceleration = 15.0
 
-[node name="HitFlashComponent" parent="." instance=ExtResource("5_kqx4n")]
-hit_flash_material = SubResource("ShaderMaterial_redmk")
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_kqx4n")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_h5bty")
 
-[node name="DeathComponent" parent="." instance=ExtResource("7_3xrkl")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_3xrkl")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="Visuals" type="Node2D" parent="."]
 z_as_relative = false
@@ -97,10 +102,11 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("8_e11ub")
 offset = Vector2(0, -8)
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("9_nvsro")
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -19)
