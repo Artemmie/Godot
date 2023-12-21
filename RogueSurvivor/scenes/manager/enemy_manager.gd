@@ -53,7 +53,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	timer.wait_time = base_spawn_time - time_off
 	
 	#spawn updates
-	if arena_difficulty == 18:
+	if arena_difficulty == 24:
 		enemy_table.add_item(wizard_enemy_scene, 1)
 		enemy_table.remove_item(cyclope_enemy_scene)
 	if arena_difficulty == 36:

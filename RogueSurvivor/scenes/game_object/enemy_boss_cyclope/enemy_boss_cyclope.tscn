@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgqus7cmu5sx7" path="res://scenes/component/hit_flash_component.tscn" id="5_kqx4n"]
 [ext_resource type="Shader" path="res://scenes/component/hit_flash_component.gdshader" id="6_o0b2g"]
 [ext_resource type="PackedScene" uid="uid://c86snii6kl05m" path="res://scenes/component/death_component.tscn" id="7_3xrkl"]
-[ext_resource type="Texture2D" uid="uid://cfk0gd1hwy5n5" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.png" id="8_e11ub"]
+[ext_resource type="Texture2D" uid="uid://cqs66cjf0t3gq" path="res://scenes/game_object/enemy_boss_cyclope/enemy_boss_flying_head.png" id="8_2qnaf"]
 [ext_resource type="Script" path="res://scenes/component/hurt_box_component.gd" id="9_nvsro"]
 [ext_resource type="PackedScene" uid="uid://b5rgyye11sl5g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="10_fgqpt"]
 [ext_resource type="AudioStream" uid="uid://cfoprdit6jqwl" path="res://assets/audio/footstep_carpet_000.ogg" id="11_nv55o"]
@@ -54,7 +54,7 @@ _data = {
 "walk": SubResource("Animation_fi34c")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgrn2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw8y0"]
 resource_local_to_scene = true
 shader = ExtResource("6_o0b2g")
 shader_parameter/lerp_percent = 0.0
@@ -89,7 +89,7 @@ acceleration = 15.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_kqx4n")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_xgrn2")
+hit_flash_material = SubResource("ShaderMaterial_yw8y0")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_3xrkl")]
 health_component = NodePath("../HealthComponent")
@@ -99,8 +99,7 @@ sprite = NodePath("../Visuals/Sprite2D")
 z_as_relative = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("8_e11ub")
+texture = ExtResource("8_2qnaf")
 offset = Vector2(0, -8)
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]

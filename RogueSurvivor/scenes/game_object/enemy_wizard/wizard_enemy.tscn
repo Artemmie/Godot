@@ -120,7 +120,7 @@ _data = {
 "walk": SubResource("Animation_evxtl")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_amvit"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nru85"]
 resource_local_to_scene = true
 shader = ExtResource("9_1ayvn")
 shader_parameter/lerp_percent = 0.0
@@ -131,7 +131,7 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8wnog"]
 radius = 5.0
 
-[node name="WizardEnemy" type="CharacterBody2D" groups=["enemy", "wizard"]]
+[node name="WizardEnemy" type="CharacterBody2D" groups=["enemy", "ranged", "wizard"]]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_tu0ke")
@@ -144,11 +144,11 @@ libraries = {
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_fjgv8")
-max_health = 125.0
+max_health = 999999.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_805ts")]
-max_speed = 35
-acceleration = 7.0
+max_speed = 37
+acceleration = 8.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_gi3rl")]
 health_component = NodePath("../HealthComponent")
@@ -156,7 +156,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_l4x2j")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_amvit")
+hit_flash_material = SubResource("ShaderMaterial_nru85")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_j73jc")]
 health_component = NodePath("../HealthComponent")
