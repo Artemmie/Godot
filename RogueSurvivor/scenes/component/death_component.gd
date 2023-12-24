@@ -1,11 +1,12 @@
 extends Node2D
 
 @export var health_component: Node
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 
 
 func _ready():
-	$GPUParticles2D.texture = sprite.texture
+	
+	$GPUParticles2D.texture = sprite.sprite_frames.get_frame_texture("default", 0)
 	health_component.died.connect(on_died)
 	
 func on_died():

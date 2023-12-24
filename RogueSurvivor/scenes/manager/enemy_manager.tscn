@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3d6io7nq6v8h"]
+[gd_scene load_steps=6 format=3 uid="uid://d3d6io7nq6v8h"]
 
 [ext_resource type="Script" path="res://scenes/manager/enemy_manager.gd" id="1_mhemj"]
 [ext_resource type="PackedScene" uid="uid://yu72j1v303bj" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.tscn" id="2_54x1a"]
 [ext_resource type="PackedScene" uid="uid://bxb14i3y682ef" path="res://scenes/game_object/enemy_wizard/wizard_enemy.tscn" id="2_bdgaq"]
 [ext_resource type="PackedScene" uid="uid://qav0oshntb2j" path="res://scenes/game_object/enemy_bat/enemy_bat.tscn" id="4_gbi42"]
+[ext_resource type="PackedScene" uid="uid://x8cd53l7wbiw" path="res://scenes/game_object/enemy_boss_cyclope/enemy_boss_cyclope.tscn" id="5_fb7kd"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_mhemj")
 cyclope_enemy_scene = ExtResource("2_54x1a")
 wizard_enemy_scene = ExtResource("2_bdgaq")
 bat_enemy_scene = ExtResource("4_gbi42")
+cyclope_enemy_boss_scene = ExtResource("5_fb7kd")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 autostart = true

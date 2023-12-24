@@ -72,10 +72,10 @@ motion_mode = 1
 script = ExtResource("1_2jypi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "walk"
 libraries = {
 "": SubResource("AnimationLibrary_gcngr")
 }
+autoplay = "walk"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_yqu1e")]
 max_health = 7.0

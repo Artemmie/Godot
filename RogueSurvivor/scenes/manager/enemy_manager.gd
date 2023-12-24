@@ -13,7 +13,7 @@ var enemy_table = WeightedTable.new()
 
 
 func _ready():
-	enemy_table.add_item(cyclope_enemy_scene, 10)
+	enemy_table.add_item(cyclope_enemy_boss_scene, 99999)
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -44,8 +44,8 @@ func on_timer_timeout():
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy)
 	enemy.global_position = get_spawn_position()
-	if enemy_scene == cyclope_enemy_boss_scene:
-		enemy_table.remove_item(cyclope_enemy_boss_scene)
+	#if enemy_scene == cyclope_enemy_boss_scene:
+		#enemy_table.remove_item(cyclope_enemy_boss_scene)
 	
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (.1 / 12) * arena_difficulty
@@ -53,19 +53,19 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	timer.wait_time = base_spawn_time - time_off
 	
 	#spawn updates
-	if arena_difficulty == 24:
+	if arena_difficulty == 9999:
 		enemy_table.add_item(wizard_enemy_scene, 1)
-		enemy_table.remove_item(cyclope_enemy_scene)
-	if arena_difficulty == 36:
+		#enemy_table.remove_item(cyclope_enemy_scene)
+	if arena_difficulty == 9999:
 		enemy_table.add_item(bat_enemy_scene, 1)
 		enemy_table.remove_item(wizard_enemy_scene)
 		enemy_table.add_item(cyclope_enemy_boss_scene, 99999)
-	if arena_difficulty == 54:
+	if arena_difficulty == 9999:
 		enemy_table.add_item(cyclope_enemy_scene, 10)
 		enemy_table.remove_item(bat_enemy_scene)
-	if arena_difficulty == 72:
+	if arena_difficulty == 9999:
 		enemy_table.add_item(wizard_enemy_scene, 20)
-	if arena_difficulty == 90:
+	if arena_difficulty == 9999:
 		enemy_table.add_item(bat_enemy_scene, 15)
 		
 	#health updates	
