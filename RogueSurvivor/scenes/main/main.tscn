@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bw7n3pw16jth6"]
+[gd_scene load_steps=13 format=3 uid="uid://bw7n3pw16jth6"]
 
 [ext_resource type="PackedScene" uid="uid://bjr0cdooyt30p" path="res://scenes/game_object/player/player_swordman.tscn" id="1_ek0em"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_kgexr"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bap1xws2ah1u1" path="res://scenes/ui/end_screen.tscn" id="2_8h6px"]
 [ext_resource type="PackedScene" uid="uid://bhyqdftnmsiry" path="res://scenes/manager/experience_manager.tscn" id="4_qo8ph"]
 [ext_resource type="PackedScene" uid="uid://b5l5gx32h8b2m" path="res://scenes/ui/arena_time_ui.tscn" id="5_fjjjc"]
-[ext_resource type="PackedScene" uid="uid://d3d6io7nq6v8h" path="res://scenes/manager/enemy_manager.tscn" id="5_tx1ww"]
 [ext_resource type="PackedScene" uid="uid://b3saexnyjl7u" path="res://scenes/ui/current_level_ui.tscn" id="6_h1jj8"]
 [ext_resource type="PackedScene" uid="uid://4nxiuq5kqwk8" path="res://scenes/manager/arena_time_manager.tscn" id="6_pm7qs"]
 [ext_resource type="PackedScene" uid="uid://dkvt3w8xv0rnt" path="res://scenes/manager/upgrade_manager.tscn" id="6_t6v1e"]
@@ -30,9 +29,6 @@ experience_manager = NodePath("../ExperienceManager")
 experience_manager = NodePath("../ExperienceManager")
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("6_pm7qs")]
-
-[node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("5_tx1ww")]
-arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceManager" parent="." instance=ExtResource("4_qo8ph")]
 

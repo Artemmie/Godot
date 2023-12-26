@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://x8cd53l7wbiw"]
+[gd_scene load_steps=15 format=3 uid="uid://x8cd53l7wbiw"]
 
 [ext_resource type="Script" path="res://scenes/game_object/enemy_boss_cyclope/enemy_boss_cyclope.gd" id="1_5q1vo"]
 [ext_resource type="PackedScene" uid="uid://deu06408otpur" path="res://scenes/component/health_component.tscn" id="2_o5aud"]
 [ext_resource type="PackedScene" uid="uid://ct3dr4wslqihj" path="res://scenes/component/vial_drop_component.tscn" id="3_c1qst"]
 [ext_resource type="PackedScene" uid="uid://drukj8tm53wy0" path="res://scenes/component/velocity_component.tscn" id="4_ffv6e"]
 [ext_resource type="PackedScene" uid="uid://c86snii6kl05m" path="res://scenes/component/death_component.tscn" id="7_3xrkl"]
-[ext_resource type="PackedScene" uid="uid://dsd1dkv1nale2" path="res://scenes/game_object/enemy_boss_cyclope/enemy_boss_flying_head.ase" id="8_risxr"]
 [ext_resource type="Script" path="res://scenes/component/hurt_box_component.gd" id="9_nvsro"]
 [ext_resource type="PackedScene" uid="uid://b5rgyye11sl5g" path="res://scenes/component/random_stream_player_2d_component.tscn" id="10_fgqpt"]
 [ext_resource type="AudioStream" uid="uid://cfoprdit6jqwl" path="res://assets/audio/footstep_carpet_000.ogg" id="11_nv55o"]
@@ -37,13 +36,10 @@ acceleration = 15.0
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_3xrkl")]
 health_component = NodePath("../HealthComponent")
-sprite = NodePath("../Visuals/Sprite2D")
+sprite = NodePath("")
 
 [node name="Visuals" type="Node2D" parent="."]
 z_as_relative = false
-
-[node name="Sprite2D" parent="Visuals" instance=ExtResource("8_risxr")]
-autoplay = "default"
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 collision_layer = 0
