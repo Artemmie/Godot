@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://x8cd53l7wbiw"]
 
-[ext_resource type="Script" path="res://scenes/game_object/enemy_boss_cyclope/enemy_boss_cyclope.gd" id="1_5q1vo"]
+[ext_resource type="Script" path="res://scenes/game_object/enemies/boss/flying_head/enemy_boss_cyclope.gd" id="1_5q1vo"]
 [ext_resource type="PackedScene" uid="uid://deu06408otpur" path="res://scenes/component/health_component.tscn" id="2_o5aud"]
 [ext_resource type="PackedScene" uid="uid://ct3dr4wslqihj" path="res://scenes/component/vial_drop_component.tscn" id="3_c1qst"]
 [ext_resource type="PackedScene" uid="uid://drukj8tm53wy0" path="res://scenes/component/velocity_component.tscn" id="4_ffv6e"]
