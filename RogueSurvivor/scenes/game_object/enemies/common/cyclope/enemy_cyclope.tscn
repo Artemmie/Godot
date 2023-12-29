@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://yu72j1v303bj"]
 
-[ext_resource type="Script" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.gd" id="1_2jypi"]
-[ext_resource type="Texture2D" uid="uid://cfk0gd1hwy5n5" path="res://scenes/game_object/enemy_cyclope/enemy_cyclope.png" id="1_go8ox"]
+[ext_resource type="Script" path="res://scenes/game_object/enemies/common/cyclope/enemy_cyclope.gd" id="1_2jypi"]
+[ext_resource type="Texture2D" uid="uid://cfk0gd1hwy5n5" path="res://scenes/game_object/enemies/common/cyclope/enemy_cyclope.png" id="1_go8ox"]
 [ext_resource type="PackedScene" uid="uid://deu06408otpur" path="res://scenes/component/health_component.tscn" id="2_yqu1e"]
 [ext_resource type="PackedScene" uid="uid://ct3dr4wslqihj" path="res://scenes/component/vial_drop_component.tscn" id="3_kdpun"]
 [ext_resource type="PackedScene" uid="uid://c86snii6kl05m" path="res://scenes/component/death_component.tscn" id="6_3j3w8"]
