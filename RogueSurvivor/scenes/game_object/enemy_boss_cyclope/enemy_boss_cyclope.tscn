@@ -34,9 +34,8 @@ health_component = NodePath("../HealthComponent")
 max_speed = 35
 acceleration = 15.0
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_3xrkl")]
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_3xrkl")]
 health_component = NodePath("../HealthComponent")
-sprite = NodePath("")
 
 [node name="Visuals" type="Node2D" parent="."]
 z_as_relative = false

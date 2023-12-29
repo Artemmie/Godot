@@ -1466,6 +1466,16 @@ texture = ExtResource("11_cki16")
 13:29/0 = 0
 13:29/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:29/0/physics_layer_0/angular_velocity = 0.0
+0:4/size_in_atlas = Vector2i(12, 3)
+0:4/animation_frame_0/duration = 1.0
+0:4/animation_frame_1/duration = 1.0
+0:4/animation_frame_2/duration = 1.0
+0:4/animation_frame_3/duration = 1.0
+0:4/animation_frame_4/duration = 1.0
+0:4/animation_frame_5/duration = 1.0
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4d0qr"]
 texture = ExtResource("12_wl7q2")
