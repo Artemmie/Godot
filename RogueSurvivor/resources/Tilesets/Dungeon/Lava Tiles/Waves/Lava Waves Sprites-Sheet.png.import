@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs3oywquiujn5"
-path="res://.godot/imported/Lava Big Rocks.png-66c07ddaef4c865dba3d555a28e78eb2.ctex"
+uid="uid://cnbiougy751fb"
+path="res://.godot/imported/Lava Waves Sprites-Sheet.png-b54fde0c99813a61166f19067fff8a00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Tilesets/Dungeon/Lava Tiles/Rocks/Lava Big Rocks.png"
-dest_files=["res://.godot/imported/Lava Big Rocks.png-66c07ddaef4c865dba3d555a28e78eb2.ctex"]
+source_file="res://resources/Tilesets/Dungeon/Lava Tiles/Waves/Lava Waves Sprites-Sheet.png"
+dest_files=["res://.godot/imported/Lava Waves Sprites-Sheet.png-b54fde0c99813a61166f19067fff8a00.ctex"]
 
 [params]
 

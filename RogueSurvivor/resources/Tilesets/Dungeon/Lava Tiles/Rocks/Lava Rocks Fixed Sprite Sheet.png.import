@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by7yr1bfg6jjg"
-path="res://.godot/imported/Lava Very Small Rocks.png-d375c8b6bf0531a77075d191df7483b8.ctex"
+uid="uid://0r088ubflgqe"
+path="res://.godot/imported/Lava Rocks Fixed Sprite Sheet.png-f9ad5ba4eecd36b81c0ed549e1a6d086.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Tilesets/Dungeon/Lava Tiles/Rocks/Lava Very Small Rocks.png"
-dest_files=["res://.godot/imported/Lava Very Small Rocks.png-d375c8b6bf0531a77075d191df7483b8.ctex"]
+source_file="res://resources/Tilesets/Dungeon/Lava Tiles/Rocks/Lava Rocks Fixed Sprite Sheet.png"
+dest_files=["res://.godot/imported/Lava Rocks Fixed Sprite Sheet.png-f9ad5ba4eecd36b81c0ed549e1a6d086.ctex"]
 
 [params]
 
