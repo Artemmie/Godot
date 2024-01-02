@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://x3powcun54wj"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://x3powcun54wj"]
 
 [ext_resource type="Texture2D" uid="uid://dxlg6ly6pdfc7" path="res://resources/Tilesets/Dungeon/Ground.png" id="1_8h8ge"]
 [ext_resource type="Texture2D" uid="uid://cqwn347ayyhlp" path="res://resources/Tilesets/Dungeon/details.png" id="2_t53ha"]
+[ext_resource type="Texture2D" uid="uid://2or3fgc5fscd" path="res://resources/Tilesets/Dungeon/Lava Tiles/Waves/Animated Objects-Sheet.png" id="8_bmkk8"]
 [ext_resource type="Texture2D" uid="uid://cnbiougy751fb" path="res://resources/Tilesets/Dungeon/Lava Tiles/Waves/Lava Waves Sprites-Sheet.png" id="8_kuhf0"]
 [ext_resource type="Texture2D" uid="uid://6lk01k1sgs1o" path="res://resources/Tilesets/Dungeon/Objects.png" id="8_q6i7t"]
 [ext_resource type="Texture2D" uid="uid://74ltcxyu47jp" path="res://resources/Tilesets/Dungeon/spots.png" id="9_uljd4"]
@@ -1530,6 +1531,19 @@ texture = ExtResource("8_kuhf0")
 0:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:22/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4to3p"]
+texture = ExtResource("8_bmkk8")
+0:0/size_in_atlas = Vector2i(10, 6)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcbb5"]
 texture = ExtResource("10_0fcoh")
 
@@ -1556,3 +1570,4 @@ sources/4 = SubResource("TileSetAtlasSource_o6kwo")
 sources/5 = SubResource("TileSetAtlasSource_bn5wu")
 sources/8 = SubResource("TileSetAtlasSource_wcbb5")
 sources/6 = SubResource("TileSetAtlasSource_xbns3")
+sources/7 = SubResource("TileSetAtlasSource_4to3p")
