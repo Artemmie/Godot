@@ -1546,6 +1546,16 @@ texture = ExtResource("8_bmkk8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcbb5"]
 texture = ExtResource("10_0fcoh")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 physics_layer_0/collision_layer = 1
